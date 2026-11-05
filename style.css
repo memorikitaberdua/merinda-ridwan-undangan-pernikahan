@@ -526,3 +526,17 @@ footer li {
         height: 170px;
     }
 }
+
+.home h2 {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Khusus tampilan HP */
+@media (max-width: 576px) {
+  .home h2 {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+}
