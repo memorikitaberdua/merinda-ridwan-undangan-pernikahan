@@ -43,7 +43,9 @@
     <!-- Tempat Nama Tamu -->
     <div class="guest-info my-4">
       <h4 class="fw-normal mb-1">Kepada <span>Bapak/Ibu/Saudara/i,</span></h4>
-      <h3 id="guest-name" class="fw-bold fs-4">Nama Tamu</h3>
+      <h3 id="guest-name" class="fw-bold fs-4">
+    Nama Tamu
+</h3>
     </div>
 
     <!-- Tombol Buka Undangan -->
@@ -497,31 +499,27 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
   </script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const nama = urlParams.get('n') || '';
+
+    const nama = urlParams.get('n') || 'Nama Tamu';
     const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
-    const namaContainer = document.querySelector('.hero h4 span');
-    namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ',');
 
-    document.querySelector('#nama').value = nama;
-  </script>
+    const namaContainer = document.getElementById('guest-name');
 
-  // Mengambil nama tamu dari URL
-const urlParams = new URLSearchParams(window.location.search);
-const guestName = urlParams.get('to');
+    if (namaContainer) {
+        namaContainer.textContent = nama;
+    }
 
-// Menampilkan nama tamu
-const guestElement = document.getElementById('guest-name');
+    const sapaanContainer = document.querySelector('.hero h4 span');
 
-if (guestName) {
-    guestElement.textContent = decodeURIComponent(guestName.replace(/\+/g, ' '));
-} else {
-    guestElement.textContent = 'Nama Tamu';
-}
+    if (sapaanContainer) {
+        sapaanContainer.textContent = pronoun + ',';
+    }
 
-<script src="js/guest.js"></script>
+    const inputNama = document.querySelector('#nama');
+
+    if (inputNama) {
+        inputNama.value = nama === 'Nama Tamu' ? '' : nama;
+    }
+</script>
 </body>
-</html>
-
-</body>
-
 </html>
