@@ -540,3 +540,33 @@ footer li {
     margin-bottom: 15px;
   }
 }
+
+/* Tampilan Ucapan & Doa */
+#daftar-ucapan {
+    color: #212529;
+}
+
+#daftar-ucapan .card {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+}
+
+#daftar-ucapan .card-body {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+}
+
+#daftar-ucapan h5 {
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+#daftar-ucapan p {
+    color: #333333 !important;
+    line-height: 1.7;
+}
+
+#daftar-ucapan small {
+    color: #777777 !important;
+}

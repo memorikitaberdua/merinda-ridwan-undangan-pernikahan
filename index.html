@@ -321,7 +321,7 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
 
         <div class="col-12">
   <div class="mb-3">
-    <label for="ucapan" class="form-label">Ucapkan Doa Terbaik</label>
+    <label for="ucapan" class="form-label">Ucapan dan Doa</label>
     <textarea
       class="form-control"
       id="ucapan"
@@ -341,7 +341,7 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
 <!-- Daftar Ucapan dan Doa -->
 <div class="row justify-content-center mt-5">
     <div class="col-md-8 col-10">
-        <h2 class="text-center mb-4">Ucapan & Doa</h2>
+        <h2 class="text-center mb-4">Daftar Ucapan</h2>
 
         <div id="daftar-ucapan">
             <p class="text-center">Memuat ucapan...</p>
@@ -588,8 +588,16 @@ function tampilkanUcapan(data) {
         ucapan.textContent = item.ucapan;
 
         const waktu = document.createElement('small');
-        waktu.className = 'text-muted';
-        waktu.textContent = item.waktu;
+waktu.className = 'text-muted';
+
+waktu.textContent = new Date(item.waktu).toLocaleString('id-ID', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Asia/Jakarta'
+}) + ' WIB';
 
         body.appendChild(nama);
         body.appendChild(ucapan);
