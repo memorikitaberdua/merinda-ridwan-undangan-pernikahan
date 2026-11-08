@@ -220,7 +220,7 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
 
             </li>
             <li>
-              <div class="timeline-image" style="background-image: url('img/tatapdikebun.jpg');"></div>
+              <div class="timeline-image" style="background-image: url('img/merinaibaru.jpeg');"></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h3>Bukan tentang seberapa jauh kami pernah berjalan, tetapi tentang bagaimana takdir membawa kami kembali untuk saling menetap</h3>
@@ -504,6 +504,24 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
 
     document.querySelector('#nama').value = nama;
   </script>
+
+  // Mengambil nama tamu dari URL
+const urlParams = new URLSearchParams(window.location.search);
+const guestName = urlParams.get('to');
+
+// Menampilkan nama tamu
+const guestElement = document.getElementById('guest-name');
+
+if (guestName) {
+    guestElement.textContent = decodeURIComponent(guestName.replace(/\+/g, ' '));
+} else {
+    guestElement.textContent = 'Nama Tamu';
+}
+
+<script src="js/guest.js"></script>
+</body>
+</html>
+
 </body>
 
 </html>
