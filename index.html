@@ -539,5 +539,66 @@ Dengan penuh syukur, kami menantikan hari ketika dua jiwa dipersatukan dalam sat
         inputNama.value = nama === 'Nama Tamu' ? '' : nama;
     }
 </script>
+
+
+<script>
+const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwqV0N8-X0zOeyhO1t_LUcL8UD9ejCFilNh5xlATpit9VM1wP-LGZS-t0_7GE-z3QcO/exec';
+
+function tampilkanUcapan(data) {
+    const container = document.getElementById('daftar-ucapan');
+
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    if (!data || data.length === 0) {
+        container.textContent = 'Belum ada ucapan.';
+        return;
+    }
+
+    data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card mb-3 shadow-sm';
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+
+        const nama = document.createElement('h5');
+        nama.className = 'fw-bold';
+        nama.textContent = item.nama;
+
+        const ucapan = document.createElement('p');
+        ucapan.className = 'mb-2';
+        ucapan.textContent = item.ucapan;
+
+        const waktu = document.createElement('small');
+        waktu.className = 'text-muted';
+        waktu.textContent = item.waktu;
+
+        body.appendChild(nama);
+        body.appendChild(ucapan);
+        body.appendChild(waktu);
+
+        card.appendChild(body);
+        container.appendChild(card);
+    });
+}
+
+// Mengambil data ucapan dari Google Spreadsheet
+const scriptUcapan = document.createElement('script');
+
+scriptUcapan.src = URL_SCRIPT +
+    '?callback=tampilkanUcapan&t=' + Date.now();
+
+scriptUcapan.onerror = function() {
+    document.getElementById('daftar-ucapan').textContent =
+        'Gagal memuat ucapan. Silakan muat ulang halaman.';
+};
+
+document.body.appendChild(scriptUcapan);
+</script>
+</body>
+</html>
+
 </body>
 </html>
